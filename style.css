@@ -1,0 +1,155 @@
+/* ---------------------------------------- */
+/* ==            CODES COMMUNS                */
+/*---------------------------------------- */
+
+@font-face{
+    font-family: 'Dayrom';
+    src: url('polices/dayrom.eot');
+    src: url('polices/dayrom.eot?#iefix') format('embedded-opentype'),
+         url('polices/dayrom.woff') format('woff'),
+         url('polices/dayrom.ttf') format('truetype'),
+         url('polices/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body{
+    margin: 0;
+}
+
+#bloc_page{
+    font-family: 'Dayrom', arial, sans-serif;
+    width: 90%;
+    margin: auto;
+}
+
+/* ---------------------------------------- */
+/* ==            HEADER                */
+/*---------------------------------------- */
+header{
+    display: flex;
+    justify-content:space-around;
+    align-items: baseline;
+     background-color: rgba(78, 149, 173, 0.3);
+    color: white;
+    margin-bottom: 20px;
+    
+}
+
+h1{
+    font-size: 50px;    
+}
+
+/* ---------------------------------------- */
+/* ==            NAV                      */
+/*---------------------------------------- */
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    
+}
+
+nav li{
+    margin: 15px;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+nav a:hover{
+    border-bottom: 3px solid white;
+}
+
+
+/* ---------------------------------------- */
+/* ==            FOOTER                   */
+/*---------------------------------------- */
+
+footer{
+    text-align: center;
+    
+}
+
+
+/* ---------------------------------------- */
+/* ==            MEDIA QUERIES             */
+/*---------------------------------------- */
+
+
+
+@media all and (max-width: 480px) {
+    
+    header
+    {
+    flex-direction: column;
+        justify-content: center;
+    }
+    h1
+    {
+    margin-left: 15px;     
+    font-size: 20px;
+    }
+      .slide-content {
+        font-size: 1em;
+    }
+
+  
+    
+}
+
+
+@media all and (min-width: 481px) and (max-width: 768px){
+    
+    header
+    {
+    flex-direction: column;
+    justify-content: center;
+        
+    }
+    h1
+    {
+    margin-left: 15px;     
+    font-size: 20px;
+    }
+    
+     .slide-content {
+        font-size: 2em;
+    }
+
+    #conteneur {
+        flex-direction: column;
+    }
+
+    
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px){
+     header
+    {
+    flex-direction: column;
+    justify-content: center;
+    }
+    h1
+    {
+    margin-left: 15px;  
+
+    }
+     .slide-content {
+        font-size: 2em;
+    }
+
+    #conteneur {
+        flex-direction: column;
+    }
+
+    
+    
+}
+
+
+
+
