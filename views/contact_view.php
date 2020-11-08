@@ -18,30 +18,30 @@
             <div class="text-wrapper_contact">
                  <h3> Vous avez des questions</h3>
                 <p>Tel: 01 02 03 04 05</p>
-                <p>Je suis disponible la semaine </p>
+                <p>Je suis disponible la semaine </p><br />
                 <div id="form">
 			<form method="POST" action="index.php">
-				<table>
+				<table id="setting_form">
                     <tr>
 						<td>Prenom</td>
-						<td><input type="text" name="first_name" placeholder="Ex : Nicolas" required></td>
+						<td><input type="text" name="first_name" class="input_form" placeholder="Ex : Nicolas" required></td>
 					</tr>
                     <tr>
 						<td>Nom</td>
-						<td><input type="text" name="name" placeholder="Ex : Nicolas" required></td>
+						<td><input type="text" name="name" class="input_form" placeholder="Ex : Nicolas" required></td>
 					</tr>
 					
 					<tr>
 						<td>Email</td>
-						<td><input type="email" name="email" placeholder="Ex : example@google.com" required></td>
+						<td><input type="email" name="email" class="input_form" placeholder="Ex : example@google.com" required></td>
 					</tr>
                     <tr>
 						<td>Objet</td>
-						<td><input type="text" name="object" placeholder="Ex : Nicolas" required></td>
+						<td><input type="text" name="object" class="input_form" placeholder="Ex : Nicolas" required></td>
 					</tr>
                     <tr>
 						<td>Message</td>
-						<td><input type="textera" name="pseudo" placeholder="Ex : Nicolas" required></td>
+						<td><input type="textera" name="message" class="input_form" placeholder="Ex : Nicolas" required></td>
 					</tr>
                     
 					
