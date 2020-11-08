@@ -11,7 +11,7 @@
 
     <?php include_once 'views/includes/header.php'?>
 
-    <h2>Contact</h2>
+    <h2>Formulaire de Contact</h2>
     <div class="content-wrapper_contact">
    
    
@@ -24,11 +24,11 @@
 				<table id="setting_form">
                     <tr>
 						<td>Prenom</td>
-						<td><input type="text" name="first_name" class="input_form" placeholder="Ex : Nicolas" required></td>
+						<td><input type="text" name="first_name" class="input_form" placeholder="Ex : Jérémie" required></td>
 					</tr>
                     <tr>
 						<td>Nom</td>
-						<td><input type="text" name="name" class="input_form" placeholder="Ex : Nicolas" required></td>
+						<td><input type="text" name="name" class="input_form" placeholder="Ex : Jolys" required></td>
 					</tr>
 					
 					<tr>
@@ -37,11 +37,11 @@
 					</tr>
                     <tr>
 						<td>Objet</td>
-						<td><input type="text" name="object" class="input_form" placeholder="Ex : Nicolas" required></td>
+						<td><input type="text" name="object" class="input_form" placeholder="Ex : J'ai des supers idées " required></td>
 					</tr>
                     <tr>
 						<td>Message</td>
-						<td><input type="textera" name="message" class="input_form" placeholder="Ex : Nicolas" required></td>
+						<td><input type="textera" name="message" class="input_form" placeholder="Ex : Il est génial" required></td>
 					</tr>
                     
 					
