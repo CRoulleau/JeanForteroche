@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 <head>
@@ -13,8 +14,21 @@
 
     <h2>Connectez-vous</h2>
     
+  
     
-    <section id="conteneur_admin">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <section id="conteneur_admin">  
+        
+        
     
     <aside class="sidebar-admin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip ex ea commodo conséquat. Duis aute irure dolor in reprehenderit in voluptateit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Sauf sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum </aside>
     
@@ -30,7 +44,6 @@
 
 </body>
 </html>
-
 
 
 
