@@ -1,61 +1,56 @@
 <?php
 
 
+if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) //si le id n'est pas une valeur numérique on redirige vers home
+        var_dump(addComment);
 
-//COMMENTAIRE
-
-/*if (isset($_POST['submit_comment'])) {
-    if (isset($_POST['author'], $_POST['comment']) AND !empty($_POST['author']) AND !empty($_POST['comment']))
+        //header('Location: index.php');
+    else
     {
-        $author =  htmlspecialchars($_POST['author']);
-        $comment =  htmlspecialchars ($_POST['comment']);
-        
-         $req_comment = $db->prepare('INSERT INTO comments (author, comment, post_id) VALUES (?,?,?)');
-            $req_comment->execute(array(
-                $author,
-                $comment, 
-                $_POST['post_id']));
+        extract($_GET); //on extrait le get   
+        $id = strip_tags($id); //suprime le html et le php de la variable
+        require_once('_functions/getArticles.php');
         
         
-        
-    }    
-    
-} else {
-    echo "erreur ";
-}
-
-*/
-
-
-
-//article
-if (isset ($_GET['id']) && !empty($_GET['id'])){
-    $getId = htmlspecialchars($_GET['id']);    
-$req = $db->prepare('SELECT id, title, content FROM articles WHERE id = ?');
-$req->execute(array($getId));  
-
-}else{
-    echo "cet article n'existe plus"; 
-}
-
-$reponse = $db->query('SELECT articles.id as idArticles , comments.comment as postId
-FROM articles
-INNER JOIN comments 
-ON articles.id = comments.post_id');
-
-
-// Récupération des 10 derniers messages
-//$reponse = $db->query('SELECT author, comment FROM comments ORDER BY id DESC LIMIT 0, 10');
-    
-
-
-// Insertion du message à l'aide d'une requête préparée
-/*$req_comment = $db->prepare('INSERT INTO comments (author, comment, post_id) VALUES(?, ?, ?)');
-$req_comment->execute(array($_POST['author'], $_POST['comment'] ));
-
-// Redirection du visiteur vers la page du minichat
-header('Location: post_view.php');
-*/
-
-
+        if(!empty($_POST))
+        {
+            extract($_POST);//si il y a qq chose on extrait le post
+            $errors = array();//
+            
+            $author = strip_tags($author);
+            $comment = strip_tags($comment);
+            
+            if(empty($author))
+                array_push($errors, "Entrez un pseudo");
+            
+            if(empty($comment))
+                array_push($errors, "entrez un commentaire");
+            
+            
+            if(count($errors) == 0) // si il y a pas d'erreur
+            {
+                $comment = addComment($id, $author, $comment);
+                $sucess = "Votre commenntaire a été publié";
+                unset($author); //vide le champ author
+                unset($comment);
+            }
+        } 
+        $article = getArticle($id); 
+        $comments = getComments($id);
+    }  
 ?>
+
+
+
+ //
+    <?php
+    
+    if(isset($success))
+        echo $sucess;
+        
+    if(!empty($errors)): ?> //si il y a des erreurs on parcours le tableau
+    <?php foreach($errors as $error): ?>
+        <p><?= $error ?></p>
+    <?php endforeach; ?>
+    
+    <?php endif; ?>

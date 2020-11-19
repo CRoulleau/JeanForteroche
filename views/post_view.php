@@ -1,3 +1,8 @@
+<!--
+require_once('_functions/getArticles.php');
+$articles = getArticles(); 
+ -->
+
 <!doctype html>
 <html>
 <head>
@@ -11,64 +16,69 @@
 
     <?php include_once 'views/includes/header.php'?>
 
- <?php $test = $req->fetch();
 
-             echo $test['title']. '<br />'. $test['content']. '<br />'; ?>
-    
-    
-    
- <h2>Vos commentaires</h2>  
-    
-    <?php  
-     
-     echo '<p><a href="index.php?page=post&amp;idArticles=7" alt="#">voir les commentaires</a>
-        </p>';
-    
+<a href="index.php?page=livre">Retour aux articles</a>
 
-   
-   // $test1 = $reponse->fetch();
-    //echo $test1['a.id'];
-    
-// Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
-while ($donnees = $reponse->fetch())
-{
-	echo '<p><strong>' . htmlspecialchars($donnees['idArticles']) . '</strong> : ' . htmlspecialchars($donnees['postId']) . '</p>';
-}
+    <h2><?= $article->title ?></h2>
+    <br />
+        <time><?= $article->date ?></time>
+    <br />
 
-
-
-$reponse->closeCursor();
-
-    
-  ?>  
+<?= $article->content ?>
+    <hr />
     
     
     
+    <!--
+    if(isset($success))
+        echo $sucess;
+        
+    if(!empty($errors)): ?> //si il y a des erreurs on parcours le tableau
+    foreach($errors as $error): 
+        <p><?= $error ?></p>
+    php endforeach; 
+    
+     endif; -->
     
     
-    <h3>Ajoutez vos commentaires</h3>
     
-    <form  method="post">
-        <p>
-        <label for="pseudo">Pseudo</label> : <input type="text" name="author" id="author" /><br />
-        <label for="message">Message</label> :  <input type="text" name="message" id="message" /><br />
-
-        <input type="submit" value="Envoyer" />
-	</p>
+<form action="index.php?page=post&amp;id=<?= $article->id ?>" method="post">
+    <p><label for="author">Pseudo: </label><br />
+        <input type="text" name="author" id="author" value="<?php if(isset($author)) echo $author ?>"></p>
+    <p><label for="comment">Commentaire: </label><br />
+        <textarea name="comment" id="comment" rows="8" cols="30"><?php if(isset($comment)) echo $comment ?></textarea></p>
+    <button type="submit">Envoyer</button>
+    
+    
+    
     </form>
+    <h2>Commentaires: </h2>
+    <?php foreach($comments as $com): ?>
+    <h3><?= $com->author ?></h3>
+    <time><?= $com->comment_date ?></time>
+    <p><?= $com->comment ?></p>
+    <?php endforeach; ?>
     
-  
-    
-    
-    
-    
-    
-   
-    
-    
-      <?php include_once 'views/includes/footer.php' ?>
+
+
+
+
+
+ <?php include_once 'views/includes/footer.php' ?>
 
     
     
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

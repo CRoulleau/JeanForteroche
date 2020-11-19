@@ -1,3 +1,7 @@
+<?php 
+
+//$articles = getArticles(); ?>
+
 <!doctype html>
 <html>
 <head>
@@ -9,36 +13,14 @@
 
 <body>
 
-    <?php include_once 'views/includes/header.php'?>
-
-   
-
-
-        <?php  
+    <?php include_once 'views/includes/header.php'?> 
     
-        while ($data = $req->fetch())
-        {
-    ?>
-    <p><?php echo $data['title']; ?><br />
-    <? echo $data['content']; ?><br />
-    <a href="#" alt="#">Lire la suite</a>
-</p>
-       <?php
-        
-        }
-            
-
-        ?>
-    
-    
-    
-    <div>
-    <p><a href="index.php?page=post&amp;id=7" alt="#">Article 1</a>
-        </p>
-    </div>
-            <?php $req->closeCursor();?>
-
-    
+ <h2>Articles</h2>
+    <?php foreach($articles as $article): ?>
+    <h2><?= $article->title ?></h2>
+    <a href="index.php?page=post&amp;id=<?= $article->id ?>">Lire la suite</a><br />
+    <time><?= $article->date ?></time>
+    <?php endforeach; ?>
     
     <?php include_once 'views/includes/footer.php' ?>
 

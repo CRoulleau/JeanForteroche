@@ -102,9 +102,11 @@ h2 {
 h2 {
     text-align: center;
     font-size: 2em;
-   
-}
 
+}
+#contactez_id {
+margin-top: 25%;
+}
 
 .text-wrapper_contact {
     
@@ -117,6 +119,8 @@ h2 {
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    
 }
 
 .content-wrapper_contact {

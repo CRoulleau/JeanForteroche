@@ -38,6 +38,48 @@
   <button class="btn btn-lg btn-primary btn-block" type="submit">Connection</button>
 </form>
 
+      
+      
+      
+      <div class="container">
+		<p id="info">Bienvenue sur l'administration</p>
+	 	
+		<?php
+			if(isset($_GET['error'])){
+				echo'<p id="error">Nous ne pouvons pas vous authentifier.</p>';
+			}
+			else if(isset($_GET['success'])){
+				echo'<p id="success">Vous êtes maintenant connecté.</p>';
+			}
+		?>
+
+	 	<div id="form">
+			<form method="POST">
+				<table>
+					<tr>
+						<td>Email</td>
+						<td><input type="email" name="email" placeholder="Ex : example@google.com" required></td>
+					</tr>
+					<tr>
+						<td>Mot de passe</td>
+						<td><input type="password" name="password" placeholder="Ex : ********" required ></td>
+					</tr>
+				</table>
+				
+				<div id="button">
+					<button type='submit'>Connexion</button>
+				</div>
+			</form>
+		</div>
+	</div>
+      
+      
+      
+      
+      
+      
+      
+      
 
     
 
