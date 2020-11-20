@@ -1,6 +1,8 @@
 <?php
 
 include_once '_classes/Articles.php';
+//include_once '_classes/Commentaires.php';
+
 
 // Définition de la page courante
 if (isset($_GET['page']) AND !empty($_GET['page'])) {

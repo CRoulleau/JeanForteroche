@@ -45,10 +45,18 @@
           <td><?php echo $article['title'] ?></td>
           <td><?php echo $article['content'] ?></td>
           <td><?php echo $article['date'] ?></td>
+            
+            <td>
+            <a href="index.php?page=crudread&amp;readId=<?php echo $article['id'] ?>" style="color:green">
+              <button>Voir</button></a>
+                        </td>
+            
           <td>
             <a href="index.php?page=crudedit&amp;editId=<?php echo $article['id'] ?>" style="color:green">
               <button>Editer</button></a>
-              <br />
+                        </td>
+            <br />
+              <td>
             <a href="index.php?page=crud&amp;deleteId=<?php echo $article['id'] ?>" style="color:red" onclick="confirm('Etes-vous certain de vouloir supprimer cet article')">
 <button>Supprimer</button>            </a>
           </td>
@@ -60,10 +68,12 @@
 </div>
 
     
-    <div class="sidebar_secondary_home">       
+    <div class="sidebar_secondary_home">    
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
         
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         
     </div>

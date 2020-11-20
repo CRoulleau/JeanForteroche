@@ -1,10 +1,11 @@
 <?php
 
 
-if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) //si le id n'est pas une valeur numérique on redirige vers home
+if(!isset($_GET['id']) OR !is_numeric($_GET['id'])){ //si le id n'est pas une valeur numérique on redirige vers home
         var_dump(addComment);
 
-        //header('Location: index.php');
+    header('Location: index.php?page=home');
+}
     else
     {
         extract($_GET); //on extrait le get   
