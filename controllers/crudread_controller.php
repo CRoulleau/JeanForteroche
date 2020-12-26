@@ -1,29 +1,43 @@
 <?php
 //recupère ts les commentaires
-require_once('_functions/getArticles.php');
-
+//require_once('_functions/getArticles.php');
+$comments = new CommentManager();
 
 if(isset($_GET['readId']) && !empty($_GET['readId'])) {
     $editComment = $_GET['readId'];
-    $comments = getComments($editComment);
+  $commentDisplayById = $comments->getComments($editComment);
            
 
     //$editComment = $articleObj->displyCommentById($editId);
   } 
 
-
+  //$displayComment = new CommentManager;
 
 //recupère un commentaire
-
+$deleteComment = new CommentManager;
 if(isset($_GET['idComment']) && !empty($_GET['idComment'])) {
     $NoComment = $_GET['idComment'];
-    $cancelComment = deleteComment($NoComment);
-           var_dump($comments);
+    
+    $cancelComment = $deleteComment->deleteComment($NoComment);
 
 }else{
     echo "noooon!!!!!! pas id comment";
 }
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!--faire passer id pour afficher l'article-->
@@ -33,12 +47,12 @@ if(isset($_GET['idComment']) && !empty($_GET['idComment'])) {
   // Include database file
  // include '_classes/Crud.php';
 
-  $articleObj = new Articles();
+  $articleObj = new NewsManager();
 
   // Edit customer record
   if(isset($_GET['readId']) && !empty($_GET['readId'])) {
     $readId = $_GET['readId'];
-    $article = $articleObj->displyaRecordById($readId);
+    $article = $articleObj->getNewsById($readId);
   }
 
   

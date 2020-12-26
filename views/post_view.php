@@ -19,12 +19,12 @@ $articles = getArticles();
 
 <a href="index.php?page=livre">Retour aux articles</a>
 
-    <h2><?= $article->title ?></h2>
+    <h2><?= $article->getTitle() ?></h2>
     <br />
-        <time><?= $article->date ?></time>
+        <time><?= $article->getDate() ?></time>
     <br />
 
-<?= $article->content ?>
+<?= $article->getContent() ?>
     <hr />
     
     
@@ -42,7 +42,7 @@ $articles = getArticles();
     
     
     
-<form action="index.php?page=post&amp;id=<?= $article->id ?>" method="post">
+<form action="index.php?page=post&amp;id=<?= $article->getId() ?>" method="post">
     <p><label for="author">Pseudo: </label><br />
         <input type="text" name="author" id="author" value="<?php if(isset($author)) echo $author ?>"></p>
     <p><label for="comment">Commentaire: </label><br />

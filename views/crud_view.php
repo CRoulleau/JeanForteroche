@@ -35,29 +35,29 @@
     </thead>
     <tbody>
         <?php 
-          $articles = $articleObj->displayData(); 
+          $articles = $articleObj->getNews(); 
         
 
           foreach ($articles as $article) {
         ?>
         <tr>
-          <td><?php echo $article['id'] ?></td>
-          <td><?php echo $article['title'] ?></td>
-          <td><?php echo $article['content'] ?></td>
-          <td><?php echo $article['date'] ?></td>
+          <td><?php echo $article->getId() ?></td>
+          <td><?php echo $article->getTitle() ?></td>
+          <td><?php echo $article->getContent() ?></td>
+          <td><?php echo $article->getDate() ?></td>
             
             <td>
-            <a href="index.php?page=crudread&amp;readId=<?php echo $article['id'] ?>" style="color:green">
+            <a href="index.php?page=crudread&amp;readId=<?php echo $article->getId() ?>" style="color:green">
               <button>Voir</button></a>
                         </td>
             
           <td>
-            <a href="index.php?page=crudedit&amp;editId=<?php echo $article['id'] ?>" style="color:green">
+            <a href="index.php?page=crudedit&amp;editId=<?php echo $article->getId() ?>" style="color:green">
               <button>Editer</button></a>
                         </td>
             <br />
               <td>
-            <a href="index.php?page=crud&amp;deleteId=<?php echo $article['id'] ?>" style="color:red" onclick="confirm('Etes-vous certain de vouloir supprimer cet article')">
+            <a href="index.php?page=crud&amp;deleteId=<?php echo $article->getId() ?>" style="color:red" onclick="confirm('Etes-vous certain de vouloir supprimer cet article')">
 <button>Supprimer</button>            </a>
           </td>
         </tr>

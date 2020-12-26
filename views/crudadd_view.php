@@ -5,6 +5,8 @@
     <?php include_once 'views/includes/head.php'?>
 
     <title><?= ucfirst($page) ?> - Jean Forteroche</title>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>tinymce.init({selector:'textarea'});</script>
 </head>
 
 <body>
@@ -25,14 +27,21 @@
     </div>
     <div class="form-group">
       <label for="content">Description :</label>
-      <input type="text" class="form-control" name="content" placeholder="Ecrivez" required="">
+        <textarea type="text" class="form-control" name="content" placeholder="Ecrivez" required=""></textarea>
     </div>
     <div class="form-group">
       <label for="date">Date:</label>
-      <input type="text" class="form-control" name="date" placeholder="Enter une date" required="">
+      <input type="date" class="form-control" name="dateCreation"  required="">
     </div>
-    
+    <div class="form-group">
+      <label for="author">author:</label>
+      <input type="text" class="form-control" name="author" placeholder="Jean Forteroche" required="">
+    </div>
+    <div class="form-group">
+    <input type="hidden" name="id" >
+
     <input type="submit" name="submit" class="btn btn-primary" style="float:right;" value="Submit">
+  </div>
   </form>
 
 </div>

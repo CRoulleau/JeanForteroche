@@ -27,10 +27,10 @@
 <tr> 
           
         
-          <td><?php echo $article['id'] ?></td>
-          <td><?php echo $article['title'] ?></td>
-          <td><?php echo $article['content'] ?></td>
-          <td><?php echo $article['date'] ?></td>
+          <td><?php echo $article->getId() ?></td>
+          <td><?php echo $article->getTitle() ?></td>
+          <td><?php echo $article->getContent() ?></td>
+          <td><?php echo $article->getDate() ?></td>
     </tr> 
 
     </tbody>
@@ -58,28 +58,29 @@
     <tbody>
         
         
-        
-        <?php         
-        
-
+    
 
         
-         foreach($comments as $com) { ?>
+         <?php 
+         
+         foreach($commentDisplayById as $com):
+          ?>
+
         
         <tr>
-            <td><h3><?= $com->author ?></h3></td>
-            <td><time><?= $com->comment_date ?></time></td>
-             <td> <p><?= $com->comment ?></p></td>
-            <td><a href="index.php?page=crudread&amp;idComment<?php echo $cancelComment['id']   ?>"  ><button>Supprimer</button></a>
+            <td><h3><?php echo $com->author ?></h3></td>
+            <td><time><?php echo $com->comment_date ?></time></td>
+             <td> <p><?php echo $com->comment ?></p></td>
+
+           <td><a href="index.php?page=crudread&amp;idComment=<?php echo $com->id   ?>"  ><button>Supprimer</button></a>
+           <?php endforeach; ?>
 
 </td>
         
         
         
-        
         </tr>
         
-        <?php } ?>
             </tbody>
 
         

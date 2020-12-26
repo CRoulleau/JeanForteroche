@@ -1,7 +1,8 @@
 <?php
-require_once('_functions/getArticles.php');
-$articles = getArticles(); 
+//require_once('_functions/getArticles.php');
+//$articles = (); 
 
+//$displayArticles = new NewsManager();
 
 
 ?>

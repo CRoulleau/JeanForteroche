@@ -22,18 +22,18 @@
   <form action="index.php?page=crudedit" method="POST">
     <div class="form-group">
       <label for="title">Titre:</label>
-      <input type="text" class="form-control" name="utitle" value="<?php echo $article['title']; ?>" required="">
+      <input type="text" class="form-control" name="newtitle" value="<?php echo $article->getTitle(); ?>" required="">
     </div>
     <div class="form-group">
       <label for="content">Description:</label>
-      <input type="text" class="form-control" name="ucontent" value="<?php echo $article['content']; ?>" required="">
+      <input type="text" class="form-control" name="newcontent" value="<?php echo $article->getContent(); ?>" required="">
     </div>
     <div class="form-group">
-      <label for="date">Date:</label>
-      <input type="text" class="form-control" name="udate" value="<?php echo $article['date']; ?>" required="">
+      <label for="author">Author:</label>
+      <input type="text" class="form-control" name="newauthor" value="<?php echo $article->getAuthor(); ?>" required="">
     </div>
     <div class="form-group">
-      <input type="hidden" name="id" value="<?php echo $article['id']; ?>">
+      <input type="hidden" name="id" value="<?php echo $article->getId(); ?>">
       <input type="submit" name="update" class="btn btn-primary" style="float:right;" value="Mise à jour">
     </div>
   </form>
