@@ -41,7 +41,13 @@ switch($page){//la fonction du controller
             break;
     case "crud": 
         $homeController->crud();
-            break;        
+            break;
+    case "crudAdd": 
+        $homeController->crudAdd();
+            break;
+    case "crudEdit": 
+        $homeController->crudEdit();
+            break;           
         //case qui va afficher la liste des news
         //variable->function
 

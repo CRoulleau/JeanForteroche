@@ -3,7 +3,7 @@
   // Include database file
  //include_once '_classes/Articles.php';
 
-  $articleObj = new NewsManager();
+  /*$articleObj = new NewsManager();
 
   // Delete record from table
   if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
@@ -11,7 +11,7 @@
       $articleObj->deleteNews($deleteId);
   }
 
-     
+   */  
 ?> 
 
 

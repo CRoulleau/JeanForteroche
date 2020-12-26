@@ -78,7 +78,31 @@ class HomeController{
     }//fin de post
 
     public function crud() {
+        $articleObj = new NewsManager();
+
+  // Delete record from table
+  if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
+      $deleteId = $_GET['deleteId'];
+      $articleObj->deleteNews($deleteId);
+  }
+
         require('views/crud_view.php'); //renvoie la vue
+    }
+
+    public function crudAdd(){
+        
+        $addNews = new NewsManager();
+var_dump("hello");
+  // Insert Record in customer table
+  if(isset($_POST['id']))
+  {
+    $addNews->insertNews($_POST['title'], $_POST['content'] ,$_POST['dateCreation'],$_POST['author']);
+  }
+          require('views/crudadd_view.php'); 
+
+    }
+    public function crudEdit() {
+        require('views/crudedit_view.php'); //renvoie la vue
     }
 
     
