@@ -1,5 +1,5 @@
 <?php
-require '_classes/Bdd.php';
+require 'models/Bdd.php';
 
 require 'controllers/HomeController.php';
 //require '_classes/Bdd.php';
