@@ -42,12 +42,18 @@ switch($page){//la fonction du controller
     case "crud": 
         $homeController->crud();
             break;
-    case "crudAdd": 
+    case "crudadd": 
         $homeController->crudAdd();
             break;
-    case "crudEdit": 
+    case "crudedit": 
         $homeController->crudEdit();
-            break;           
+            break;
+    case "crudread":
+        $homeController->crudRead();
+            break;
+
+    default:
+        throw new Exception('Routing dispatch not found');        
         //case qui va afficher la liste des news
         //variable->function
 

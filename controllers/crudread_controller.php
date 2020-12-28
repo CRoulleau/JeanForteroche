@@ -1,18 +1,12 @@
 <?php
 //recupère ts les commentaires
-//require_once('_functions/getArticles.php');
-$comments = new CommentManager();
+
+/*$comments = new CommentManager();
 
 if(isset($_GET['readId']) && !empty($_GET['readId'])) {
     $editComment = $_GET['readId'];
-  $commentDisplayById = $comments->getComments($editComment);
-           
-
-    //$editComment = $articleObj->displyCommentById($editId);
+  $commentDisplayById = $comments->getComments($editComment);    
   } 
-
-  //$displayComment = new CommentManager;
-
 //recupère un commentaire
 $deleteComment = new CommentManager;
 if(isset($_GET['idComment']) && !empty($_GET['idComment'])) {
@@ -22,7 +16,7 @@ if(isset($_GET['idComment']) && !empty($_GET['idComment'])) {
 
 }else{
     echo "noooon!!!!!! pas id comment";
-}
+}*/
 ?>
 
 
@@ -47,7 +41,7 @@ if(isset($_GET['idComment']) && !empty($_GET['idComment'])) {
   // Include database file
  // include '_classes/Crud.php';
 
-  $articleObj = new NewsManager();
+  /*$articleObj = new NewsManager();
 
   // Edit customer record
   if(isset($_GET['readId']) && !empty($_GET['readId'])) {
@@ -55,5 +49,5 @@ if(isset($_GET['idComment']) && !empty($_GET['idComment'])) {
     $article = $articleObj->getNewsById($readId);
   }
 
-  
+  */
 ?>

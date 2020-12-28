@@ -6,7 +6,7 @@
 
 
 
-  $articleObj = new NewsManager();
+  /*$articleObj = new NewsManager();
 
 
 
@@ -21,7 +21,7 @@
     $articleObj->updateNews($_POST['newtitle'] ,
      $_POST['newcontent'],  $_POST['newauthor'], $_POST['id'] );
   }  
-    var_dump($_POST['newtitle']);
+    var_dump($_POST['newtitle']);*/
 ?>
 
 

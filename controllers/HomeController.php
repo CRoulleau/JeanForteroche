@@ -80,30 +80,70 @@ class HomeController{
     public function crud() {
         $articleObj = new NewsManager();
 
-  // Delete record from table
-  if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
-      $deleteId = $_GET['deleteId'];
-      $articleObj->deleteNews($deleteId);
-  }
+        // Delete record from table
+        if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
+            $deleteId = $_GET['deleteId'];
+            $articleObj->deleteNews($deleteId);
+        }
 
         require('views/crud_view.php'); //renvoie la vue
     }
 
     public function crudAdd(){
-        
+   
         $addNews = new NewsManager();
-var_dump("hello");
-  // Insert Record in customer table
-  if(isset($_POST['id']))
-  {
-    $addNews->insertNews($_POST['title'], $_POST['content'] ,$_POST['dateCreation'],$_POST['author']);
-  }
-          require('views/crudadd_view.php'); 
+        // Insert Record in customer table
+        if(isset($_POST['id']))
+        {
+            $addNews->insertNews($_POST['title'], $_POST['content'] ,$_POST['dateCreation'],$_POST['author']);
+        }
+        require('views/crudadd_view.php'); 
 
     }
     public function crudEdit() {
+        $articleObj = new NewsManager();
+
+
+
+  // Edit customer record
+  if(isset($_GET['editId']) && !empty($_GET['editId'])) {
+    $editId = $_GET['editId'];
+    $article = $articleObj->getNewsById($editId);
+  }
+
+  // Update Record in customer table
+  if(isset($_POST['id'])) {
+    $articleObj->updateNews($_POST['newtitle'] ,
+     $_POST['newcontent'],  $_POST['newauthor'], $_POST['id'] );
+  }  
+    
         require('views/crudedit_view.php'); //renvoie la vue
     }
+
+    public function crudRead(){
+        $articleObj = new NewsManager();
+        // Edit customer record
+        if(isset($_GET['readId']) && !empty($_GET['readId'])) {
+          $readId = $_GET['readId'];
+          $article = $articleObj->getNewsById($readId);
+        }
+        $comments = new CommentManager();
+
+    if(isset($_GET['readId']) && !empty($_GET['readId'])) {
+    $editComment = $_GET['readId'];
+  $commentDisplayById = $comments->getComments($editComment);
+  } 
+  //recupère un commentaire
+    $deleteComment = new CommentManager;
+    if(isset($_GET['idComment']) && !empty($_GET['idComment'])) {
+    $NoComment = $_GET['idComment'];    
+    $cancelComment = $deleteComment->deleteComment($NoComment);
+    }else{
+    echo "noooon!!!!!! pas id comment";
+    }  
+    require('views/crudread_view.php'); //renvoie la vue
+  
+}
 
     
     
