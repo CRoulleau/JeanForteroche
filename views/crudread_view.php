@@ -26,8 +26,9 @@
         
 <tr> 
 
-          
-        
+
+
+
           <td><?php echo $article->getId() ?></td>
           <td><?php echo $article->getTitle() ?></td>
           <td><?php echo $article->getContent() ?></td>
@@ -35,7 +36,6 @@
     </tr> 
     </tbody>
   </table>
-    
     
     
     
@@ -62,7 +62,7 @@
 
         
          <?php 
-         $commentDisplay = new ArticlesController();
+        $commentDisplay = new ArticlesController();
         $commentDisplayById = $commentDisplay->getCommentController();
          foreach($commentDisplayById as $com):
           ?>
@@ -73,7 +73,7 @@
             <td><time><?php echo $com->comment_date ?></time></td>
              <td> <p><?php echo $com->comment ?></p></td>
 
-           <td><a href="index.php?page=crudread&amp;idComment=<?php echo $com->id   ?>"  ><button>Supprimer</button></a>
+           <td><a href="index.php?page=crudread&amp;deleteId=<?php echo $com->id   ?><?php echo $article->getId() ?>"  ><button>Supprimer</button></a>
            <?php endforeach; ?>
 
 </td>

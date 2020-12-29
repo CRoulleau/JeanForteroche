@@ -1,12 +1,12 @@
 <?php
 
-include_once '_classes/autoloader.php';
-Autoloader::register();
-//require 'models/Bdd.php';
+//require '_classes/autoloader.php';
+//Autoloader::register();
+require 'models/Bdd.php';
 
 require 'controllers/HomeController.php';
 require 'controllers/ArticlesController.php';
-require 'controllers/CommentController.php';
+
 //require '_classes/Bdd.php';
 //mettre dans controller en fonction du but
 //include_once '_classes/Bdd.php';
@@ -28,8 +28,8 @@ if (isset($_GET['page']) AND !empty($_GET['page'])) {
 
 $homeController = new HomeController();
 $articlesController = new ArticlesController();
-$commentController = new CommentController();
 
+var_dump($page);
 switch($page){//la fonction du controller
     case "home": 
         $homeController->home();
@@ -52,22 +52,23 @@ switch($page){//la fonction du controller
     case "crudadd": 
         $articlesController->crudAddController();
             break;
-    case "crudedit": 
-       
+    case "crudedit":       
         $articlesController->crudEditController();
             break;
     case "crudread":
-        $articlesController->crudReadController();
-            break;
+        if(isset($_GET['deleteId'])){
 
+            $articlesController->deleteCommentController();
+
+
+        } else {
+            $articlesController->crudReadController();
+        }        
+            break;
     default:
         throw new Exception('Routing dispatch not found');        
         //case qui va afficher la liste des news
         //variable->function
-
-
-
-
 
 }
 

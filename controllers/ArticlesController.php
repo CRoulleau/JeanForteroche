@@ -1,6 +1,5 @@
 <?php
 
-//require 'CommentController.php';
 class ArticlesController
 {
     //Ajoute un article
@@ -42,13 +41,10 @@ class ArticlesController
         if(isset($_GET['readId']) && !empty($_GET['readId'])) {
           $readId = $_GET['readId'];
           $article = $articleObj->getNewsById($readId);
-        }
-
-       
-   $this->getCommentController();
-  
-   $this->deleteCommentController();
-    require('views/crudread_view.php'); //renvoie la vue
+        }    
+        var_dump($_GET['readId']);   
+        
+       require('views/crudread_view.php'); //renvoie la vue
   
 }
 
@@ -63,10 +59,22 @@ public function getCommentController(){
 }
 
 public function deleteCommentController(){
+
     $deleteComment = new CommentManager;
-   if(isset($_GET['idComment']) && !empty($_GET['idComment'])) {
-   $NoComment = $_GET['idComment'];    
-  return $cancelComment = $deleteComment->deleteComment($NoComment);
+    
+    if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
+      $deleteCommentId = $_GET['deleteId'];
+     $cancelComment = $deleteComment->deleteComment($deleteCommentId);
+   //  header("location:index.php?page=crudread&readId=$_GET['readId']" );
+
+  //$readIdComment = $article->getId();
+  //var_dump($article);
+  //  &amp;readId=<?php echo $article->getId()
+ // return  header('Location:index.php?page=crudread' );
+
+  //return crudread_view avec le readId de l article que tu supprimes
+ // require('views/crudread_view.php?readId=<?php echo $article->getId() '); //renvoie la vue
+ // index.php?page=crudread&amp;readId=<?php echo $article->getId()
    }
 
 }
@@ -76,10 +84,10 @@ public function displayArticlesController() {
    $articleObj = new NewsManager();
 
     // Delete NEWS from BDD
-   /*if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
+   if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
         $deleteId = $_GET['deleteId'];
         $articleObj->deleteNews($deleteId);
-    }*/
+    }
     if (isset($_GET['msg1']) == "insert") {
         echo "<div class='alert alert-success alert-dismissible'>
                 <button type='button' class='close' data-dismiss='alert'>&times;</button>

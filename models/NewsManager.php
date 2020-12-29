@@ -1,7 +1,7 @@
 <?php
 //qui gérera les news. C'est elle qui interagira avec la BDD
 
-//require 'models/News.php';
+require 'models/News.php';
 
 class NewsManager extends Bdd
 {

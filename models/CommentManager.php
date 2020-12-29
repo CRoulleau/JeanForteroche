@@ -1,5 +1,5 @@
 <?php
-//require 'models/Comment.php';
+require 'models/Comment.php';
 
 class CommentManager extends Bdd
 {
