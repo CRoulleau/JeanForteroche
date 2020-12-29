@@ -25,6 +25,7 @@
     <tbody>
         
 <tr> 
+
           
         
           <td><?php echo $article->getId() ?></td>
@@ -32,7 +33,6 @@
           <td><?php echo $article->getContent() ?></td>
           <td><?php echo $article->getDate() ?></td>
     </tr> 
-
     </tbody>
   </table>
     
@@ -62,7 +62,8 @@
 
         
          <?php 
-         
+         $commentDisplay = new ArticlesController();
+        $commentDisplayById = $commentDisplay->getCommentController();
          foreach($commentDisplayById as $com):
           ?>
 

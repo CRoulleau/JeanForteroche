@@ -1,7 +1,12 @@
 <?php
-require 'models/Bdd.php';
+
+include_once '_classes/autoloader.php';
+Autoloader::register();
+//require 'models/Bdd.php';
 
 require 'controllers/HomeController.php';
+require 'controllers/ArticlesController.php';
+require 'controllers/CommentController.php';
 //require '_classes/Bdd.php';
 //mettre dans controller en fonction du but
 //include_once '_classes/Bdd.php';
@@ -22,6 +27,8 @@ if (isset($_GET['page']) AND !empty($_GET['page'])) {
 }
 
 $homeController = new HomeController();
+$articlesController = new ArticlesController();
+$commentController = new CommentController();
 
 switch($page){//la fonction du controller
     case "home": 
@@ -37,19 +44,20 @@ switch($page){//la fonction du controller
         $homeController->livre();
             break;
     case "post": 
-        $homeController->post();
+        $articlesController->post();
             break;
     case "crud": 
-        $homeController->crud();
+        $articlesController->displayArticlesController();
             break;
     case "crudadd": 
-        $homeController->crudAdd();
+        $articlesController->crudAddController();
             break;
     case "crudedit": 
-        $homeController->crudEdit();
+       
+        $articlesController->crudEditController();
             break;
     case "crudread":
-        $homeController->crudRead();
+        $articlesController->crudReadController();
             break;
 
     default:

@@ -1,5 +1,5 @@
 <?php
-require 'models/Comment.php';
+//require 'models/Comment.php';
 
 class CommentManager extends Bdd
 {
@@ -42,7 +42,7 @@ class CommentManager extends Bdd
     public function deleteComment($id)
 
 {
-    $req = $this->getDb()->prepare('DELETE FROM comments WHERE id = ?');
+    $req = $this->getDb()->prepare('DELETE  FROM comments WHERE id = ?');
         $deleteComment = $req->execute(array($id));
         return $deleteComment;
 
