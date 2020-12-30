@@ -9,7 +9,7 @@ class ArticlesController
         // Insert NEWS in BDD
         if(isset($_POST['id']))
         {
-            $addNews->insertNews($_POST['title'], $_POST['content'] ,$_POST['dateCreation'],$_POST['author']);
+            $addNews->insertNews($_POST['title'], $_POST['content'] ,$_POST['author']);
         }
         require('views/crudadd_view.php'); //renvoie la vue
 
@@ -65,7 +65,7 @@ public function deleteCommentController(){
     if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
       $deleteCommentId = $_GET['deleteId'];
      $cancelComment = $deleteComment->deleteComment($deleteCommentId);
-   //  header("location:index.php?page=crudread&readId=$_GET['readId']" );
+   header("location:index.php?page=crudread&readId=".$_GET['articleId'] );
 
   //$readIdComment = $article->getId();
   //var_dump($article);

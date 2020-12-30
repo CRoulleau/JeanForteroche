@@ -48,8 +48,8 @@
         <thead>
       <tr>
         <th>Auteur</th>
-        <th>Date</th>
         <th>Commentaire</th>
+        <th>Date</th>
            <td>Supprimer           
           </td>
         <th>?</th>
@@ -70,10 +70,11 @@
         
         <tr>
             <td><h3><?php echo $com->author ?></h3></td>
-            <td><time><?php echo $com->comment_date ?></time></td>
-             <td> <p><?php echo $com->comment ?></p></td>
+            <td> <p><?php echo $com->comment ?></p></td>
+            <td><time><?php echo $com->DateComment ?></time></td>
+            
 
-           <td><a href="index.php?page=crudread&amp;deleteId=<?php echo $com->id   ?><?php echo $article->getId() ?>"  ><button>Supprimer</button></a>
+           <td><a href="index.php?page=crudread&amp;deleteId=<?= $com->id   ?>&articleId=<?= $article->getId() ?>"  ><button>Supprimer</button></a>
            <?php endforeach; ?>
 
 </td>

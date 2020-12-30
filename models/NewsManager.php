@@ -1,7 +1,7 @@
 <?php
 //qui gérera les news. C'est elle qui interagira avec la BDD
 
-require 'models/News.php';
+//require 'models/News.php';
 
 class NewsManager extends Bdd
 {
@@ -14,7 +14,7 @@ class NewsManager extends Bdd
     public function getNews()
     {
         $var = [];
-        $req = $this->getDb()->prepare('SELECT id, title, content, dateCreation, author FROM articles ORDER BY id ');
+        $req = $this->getDb()->prepare('SELECT id, title, content, author, DATE_FORMAT(dateCreation, \'%d/%m/%Y \') AS newsDate FROM articles ORDER BY newsDate DESC ');
         $req->execute();
         while($data = $req->fetch(PDO::FETCH_ASSOC))
         {
@@ -34,7 +34,7 @@ class NewsManager extends Bdd
     public function getLastNews()
     {
         $var = [];
-        $req = $this->getDb()->prepare('SELECT id, title, content, dateCreation, author FROM articles LIMIT 0,4 ');
+        $req = $this->getDb()->prepare('SELECT id, title, content, author, DATE_FORMAT(dateCreation, \'%d/%m/%Y \') AS newsDate FROM articles LIMIT 0,4 ');
         $req->execute();
         while($data = $req->fetch(PDO::FETCH_ASSOC))
         {
@@ -52,7 +52,7 @@ class NewsManager extends Bdd
      */
     public function getNewsById($id)
     {
-        $req = $this->getDb()->prepare('SELECT * FROM articles WHERE id = ?');
+        $req = $this->getDb()->prepare('SELECT id, title, content, author, DATE_FORMAT(dateCreation, \'%d/%m/%Y \') AS newsDate FROM articles WHERE id = ?');
         $req->execute(array($id));
         $data = $req->fetch();
         return new News($data);
@@ -83,7 +83,7 @@ class NewsManager extends Bdd
    public function insertNews($title, $content,$author )
 {
     
-    $req= $this->getDb()->prepare('INSERT INTO articles ( title , content, dateCreation, author ) VALUES (?,?,?, NOW())');
+    $req= $this->getDb()->prepare('INSERT INTO articles ( title , content, author, dateCreation ) VALUES (?,?,?, NOW())');
     $req->execute(array($title,$content ,$author));
     $req->closeCursor();
 }

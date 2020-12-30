@@ -1,5 +1,5 @@
 <?php
-require 'models/Comment.php';
+//require 'models/Comment.php';
 
 class CommentManager extends Bdd
 {
@@ -14,7 +14,7 @@ class CommentManager extends Bdd
 
     public function getComments($id)
 {
-    $req = $this->getDb()->prepare('SELECT * FROM comments WHERE post_id = ? ORDER BY id DESC');
+    $req = $this->getDb()->prepare('SELECT author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y \') AS DateComment FROM comments WHERE post_id = ? ORDER BY DateComment DESC');
     $req->execute(array($id));
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;

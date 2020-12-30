@@ -29,10 +29,10 @@
       <label for="content">Description :</label>
         <textarea type="text" class="form-control" name="content" placeholder="Ecrivez" required=""></textarea>
     </div>
-    <div class="form-group">
+  <!--  <div class="form-group">
       <label for="date">Date:</label>
       <input type="date" class="form-control" name="dateCreation"  required="">
-    </div>
+    </div>-->
     <div class="form-group">
       <label for="author">author:</label>
       <input type="text" class="form-control" name="author" placeholder="Jean Forteroche" required="">

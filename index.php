@@ -1,8 +1,7 @@
 <?php
-
-//require '_classes/autoloader.php';
-//Autoloader::register();
-require 'models/Bdd.php';
+require '_classes/autoloader.php';
+Autoloader::register();
+//require 'models/Bdd.php';
 
 require 'controllers/HomeController.php';
 require 'controllers/ArticlesController.php';

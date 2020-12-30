@@ -55,7 +55,7 @@ $articles = getArticles();
     <h2>Commentaires: </h2>
     <?php foreach($comments as $com): ?>
     <h3><?= $com->author ?></h3>
-    <time><?= $com->comment_date ?></time>
+    <time><?= $com->DateComment ?></time>
     <p><?= $com->comment ?></p>
     <?php endforeach; ?>
     

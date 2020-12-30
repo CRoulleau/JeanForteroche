@@ -97,7 +97,7 @@ class News
      *
      * @param [type] $dateCreation
      */
-    public function dateCreation($dateCreation)
+    public function setNewsDate($dateCreation)
     {
         $this->_dateCreation = $dateCreation;
     }
@@ -146,7 +146,7 @@ class News
     /**
      * Getter Date création
      *
-     * @return $this->_creation_date_fr;
+     * @return $this->_creation_date;
      */
     public function getDate()
     {
