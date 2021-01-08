@@ -57,6 +57,7 @@ $articles = getArticles();
     <h3><?= $com->author ?></h3>
     <time><?= $com->DateComment ?></time>
     <p><?= $com->comment ?></p>
+    <td><a href="index.php?page=reportedcomment&amp;id=<?= $com->id   ?>&amp;postId=<?= $article->getId() ?>"  >Signaler le commentaire</a>
     <?php endforeach; ?>
     
 

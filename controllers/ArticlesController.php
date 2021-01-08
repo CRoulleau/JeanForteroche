@@ -42,7 +42,6 @@ class ArticlesController
           $readId = $_GET['readId'];
           $article = $articleObj->getNewsById($readId);
         }    
-        var_dump($_GET['readId']);   
         
        require('views/crudread_view.php'); //renvoie la vue
   
@@ -57,6 +56,32 @@ public function getCommentController(){
    
 
 }
+//signaler un commentaire
+public function reportedComment(){
+  if (isset($_GET['id'])&& !empty($_GET['id'])){
+    $comments = new CommentManager();
+    $comments->reportedComment($_GET['id']);
+  header("location: index.php?page=post&id=".$_GET['postId']);
+
+  }else {
+    echo "erreur pas id";
+  }
+ //securite numro ou vérification numéro avant de lancer l'action; 
+ //fonction dans commentManager vérifier si id existe (select => renvoie true ou false)
+//faire message avec session session_sucess/erreur;
+
+
+}
+//fonction pour afficher les commentaires signalés
+public function displayCommentsReported(){
+ $commentManager = new CommentManager();
+ $commentReported = $commentManager->displayCommentsReported();
+ var_dump($commentReported);
+ require('views/crudComment_view.php'); //renvoie la vue
+
+}
+
+//methode qui affiche les commentaires: require 
 
 public function deleteCommentController(){
 
@@ -109,8 +134,7 @@ public function displayArticlesController() {
 
 public function post(){
     if(!isset($_GET['id']) OR !is_numeric($_GET['id'])){ //si le id n'est pas une valeur numérique on redirige vers home
-
-        header('Location: index.php?page=home');
+       // header('Location: index.php?page=home');
     }
         else
         {

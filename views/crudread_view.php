@@ -74,7 +74,7 @@
             <td><time><?php echo $com->DateComment ?></time></td>
             
 
-           <td><a href="index.php?page=crudread&amp;deleteId=<?= $com->id   ?>&articleId=<?= $article->getId() ?>"  ><button>Supprimer</button></a>
+           <td><a href="index.php?page=crudread&amp;deleteId=<?= $com->id   ?>&amp;articleId=<?= $article->getId() ?>"  ><button>Supprimer</button></a>
            <?php endforeach; ?>
 
 </td>

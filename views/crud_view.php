@@ -21,7 +21,9 @@
     
   
   <h2>Vos articles
-    <a href="index.php?page=crudadd" class="btn btn-primary" style="float:right;">Ajouter un article</a>
+    <a href="index.php?page=crudadd" class="btn btn-primary" style="float:right;">Ajouter un article</a> <br />  <br />
+    <a href="index.php?page=crudcomment"class="btn btn-primary" style="float:right;">Vos commentaires signalés</a>
+
   </h2>
   <table class="table table-hover">
     <thead>

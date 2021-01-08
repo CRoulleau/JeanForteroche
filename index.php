@@ -1,10 +1,22 @@
 <?php
 require '_classes/autoloader.php';
 Autoloader::register();
-//require 'models/Bdd.php';
-
 require 'controllers/HomeController.php';
 require 'controllers/ArticlesController.php';
+//une route par page par £route
+// Définition de la page courante
+if (isset($_GET['page']) AND !empty($_GET['page'])) {
+    $page = trim(strtolower($_GET['page']));
+} else {
+    $page = 'home';
+}
+require 'routeur.php';
+//require '_classes/autoloader.php';
+//Autoloader::register();
+//require 'models/Bdd.php';
+
+//require 'controllers/HomeController.php';
+//require 'controllers/ArticlesController.php';
 
 //require '_classes/Bdd.php';
 //mettre dans controller en fonction du but
@@ -17,59 +29,9 @@ include_once '_classes/CommentManager.php';
 //include_once '_classes/Test.php';
 
 */
-//une route par page par £route
-// Définition de la page courante
-if (isset($_GET['page']) AND !empty($_GET['page'])) {
-    $page = trim(strtolower($_GET['page']));
-} else {
-    $page = 'home';
-}
-
-$homeController = new HomeController();
-$articlesController = new ArticlesController();
-
-var_dump($page);
-switch($page){//la fonction du controller
-    case "home": 
-        $homeController->home();
-        break;
-    case "biographie": 
-        $homeController->biographie();
-            break;
-    case "contact": 
-        $homeController->contact();
-            break;   
-    case "livre": 
-        $homeController->livre();
-            break;
-    case "post": 
-        $articlesController->post();
-            break;
-    case "crud": 
-        $articlesController->displayArticlesController();
-            break;
-    case "crudadd": 
-        $articlesController->crudAddController();
-            break;
-    case "crudedit":       
-        $articlesController->crudEditController();
-            break;
-    case "crudread":
-        if(isset($_GET['deleteId'])){
-
-            $articlesController->deleteCommentController();
 
 
-        } else {
-            $articlesController->crudReadController();
-        }        
-            break;
-    default:
-        throw new Exception('Routing dispatch not found');        
-        //case qui va afficher la liste des news
-        //variable->function
 
-}
 
 
 

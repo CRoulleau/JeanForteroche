@@ -6,7 +6,7 @@ class CommentManager extends Bdd
 
    public function addComment($articleId, $author, $comment)
 {
-    $req= $this->getDb()->prepare('INSERT INTO comments (post_id, author, comment, comment_date) VALUES (?,?,?, NOW())');
+    $req= $this->getDb()->prepare('INSERT INTO comments (post_id, author, comment, comment_date, reportedComment) VALUES (?,?,?, NOW(), true)');
     $req->execute(array($articleId, $author, $comment));
     $req->closeCursor();
 }
@@ -14,7 +14,7 @@ class CommentManager extends Bdd
 
     public function getComments($id)
 {
-    $req = $this->getDb()->prepare('SELECT author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y \') AS DateComment FROM comments WHERE post_id = ? ORDER BY DateComment DESC');
+    $req = $this->getDb()->prepare('SELECT * , DATE_FORMAT(comment_date, \'%d/%m/%Y \') AS DateComment FROM comments WHERE post_id = ? ORDER BY DateComment DESC');
     $req->execute(array($id));
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;
@@ -50,8 +50,44 @@ class CommentManager extends Bdd
 
 }
 
+//signaler commentaire : mise à jour bdd
+public function reportedComment($id)
+{
+        $req = $this->getDb()->prepare('UPDATE comments SET reportedComment = ?  WHERE id = ?');
+        $req->execute(array("true", $id));
+        
+}
 
+//methode avec select qui va afficher les commentaires 
+//elle va recuperer les infos : champ reportedComment
 
+public function displayCommentsReported()
+{
+    $var = [];
+
+    $req = $this->getDb()->prepare('SELECT * , DATE_FORMAT(comment_date, \'%d/%m/%Y \') AS DateComment FROM comments WHERE reportedComment = "true" ');
+   
+
+    $req->execute();
+    while($data = $req->fetch(PDO::FETCH_ASSOC))
+    {
+        $var[] = new Comment($data);
+
+    } 
+    return $var;
+
+    $req->closeCursor();
+
+}
+
+//on va faire un update pour remettre dans le fil actualité=>approuver le commentaire
+
+public function approveComment($id)
+{
+        $req = $this->getDb()->prepare('UPDATE comments SET reportedComment = ?  WHERE id = ?');
+        $req->execute(array("false", $id));
+        
+}
 
 
 
