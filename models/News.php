@@ -2,14 +2,14 @@
 <?php
 // contiendra les champs sous forme d'attributs. Son rôle sera de représenter une news.
 
-class News 
+class News
 {
     private $_id;
     private $_title;
     private $_author;
     private $_content;
     private $_dateCreation;
-    
+
 
     /**
      * Constructeur qui hydrate nos instances
@@ -27,12 +27,10 @@ class News
      */
     public function hydrate(array $data)
     {
-        foreach($data as $key => $value)
-        {
-            $method = 'set'.ucfirst($key);
+        foreach ($data as $key => $value) {
+            $method = 'set' . ucfirst($key);
 
-            if(method_exists($this, $method))
-            {
+            if (method_exists($this, $method)) {
                 $this->$method($value);
             }
         }
@@ -47,8 +45,7 @@ class News
     {
         $id = (int) $id;
 
-        if($id > 0)
-        {
+        if ($id > 0) {
             $this->_id = $id;
         }
     }
@@ -60,8 +57,7 @@ class News
      */
     public function setTitle($title)
     {
-        if(is_string($title))
-        {
+        if (is_string($title)) {
             $this->_title = $title;
         }
     }
@@ -73,8 +69,7 @@ class News
      */
     public function setAuthor($author)
     {
-        if(is_string($author))
-        {
+        if (is_string($author)) {
             $this->_author = $author;
         }
     }
@@ -86,8 +81,7 @@ class News
      */
     public function setContent($content)
     {
-        if(is_string($content))
-        {
+        if (is_string($content)) {
             $this->_content = $content;
         }
     }
@@ -102,7 +96,7 @@ class News
         $this->_dateCreation = $dateCreation;
     }
 
-    
+
     /**
      * Getter Id
      *
@@ -152,9 +146,4 @@ class News
     {
         return $this->_dateCreation;
     }
-
-    
-
-
-
 }// fin de news

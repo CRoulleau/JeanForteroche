@@ -1,12 +1,11 @@
 <?php
 //qui gérera les news. C'est elle qui interagira avec la BDD
 
-//require 'models/News.php';
 
 class NewsManager extends Bdd
 {
 
-     /**
+    /**
      * Fonction qui retourne tous les articles
      *
      * @return $var;
@@ -16,11 +15,9 @@ class NewsManager extends Bdd
         $var = [];
         $req = $this->getDb()->prepare('SELECT id, title, content, author, DATE_FORMAT(dateCreation, \'%d/%m/%Y \') AS newsDate FROM articles ORDER BY newsDate DESC ');
         $req->execute();
-        while($data = $req->fetch(PDO::FETCH_ASSOC))
-        {
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new News($data);
-
-        } 
+        }
         return $var;
 
         $req->closeCursor();
@@ -36,8 +33,7 @@ class NewsManager extends Bdd
         $var = [];
         $req = $this->getDb()->prepare('SELECT id, title, content, author, DATE_FORMAT(dateCreation, \'%d/%m/%Y \') AS newsDate FROM articles LIMIT 0,4 ');
         $req->execute();
-        while($data = $req->fetch(PDO::FETCH_ASSOC))
-        {
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new News($data);
         }
         return $var;
@@ -59,34 +55,14 @@ class NewsManager extends Bdd
         $req->closeCursor();
     }
 
-    /**
-     * Fonction pour insérer un nouvel article dans la base de données
-     *
-     * @param [type] $title
-     * @param [type] $author
-     * @param [type] $content
-     * @return $insertNews;
-     */
-    /*public function insertNews($title, $content,$dateCreation, $author )
+
+    public function insertNews($title, $content, $author)
     {
-        $req = $this->getDb()->prepare('INSERT INTO articles(title, content, DATE_FORMAT(CURDATE(),%d/%m/%Y) as dateCreation ,author ) VALUES (:title,:content, :dateCreation,:author )');
-        $insertNews = $req->execute(array(
-            
-            'title' => $title,           
-            'content' => $content,
-            'newDate' => $dateCreation,
-            'author' =>$author
-        ));
-        return $insertNews;
+
+        $req = $this->getDb()->prepare('INSERT INTO articles ( title , content, author, dateCreation ) VALUES (?,?,?, NOW())');
+        $req->execute(array($title, $content, $author));
+        $req->closeCursor();
     }
-*/
-   public function insertNews($title, $content,$author )
-{
-    
-    $req= $this->getDb()->prepare('INSERT INTO articles ( title , content, author, dateCreation ) VALUES (?,?,?, NOW())');
-    $req->execute(array($title,$content ,$author));
-    $req->closeCursor();
-}
 
 
     /**
@@ -112,14 +88,14 @@ class NewsManager extends Bdd
      * @param [type] $content
      * @return $updateNews;
      */
-    public function updateNews($title,$content,$author, $id)
+    public function updateNews($title, $content, $author, $id)
     {
         $req = $this->getDb()->prepare('UPDATE articles SET title = :newtitle, 
-         content = :newcontent, author = :newauthor WHERE id ='.$id);
+         content = :newcontent, author = :newauthor WHERE id =' . $id);
         $updateNews = $req->execute(array(
-            'newtitle' => $title,         
+            'newtitle' => $title,
             'newcontent' => $content,
-            'newauthor'=> $author
+            'newauthor' => $author
         ));
         return $updateNews;
     }
@@ -138,8 +114,4 @@ class NewsManager extends Bdd
         return $checkNewsId;
         $req->closeCursor();
     }
-
-
-
-
 }

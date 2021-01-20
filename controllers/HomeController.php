@@ -1,9 +1,5 @@
 <?php
-require 'models/NewsManager.php';
-require 'models/CommentManager.php';
 
-
-//require du modèle utilise
 class HomeController{
 
     public function home() {

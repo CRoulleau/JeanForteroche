@@ -2,7 +2,7 @@
 <?php
 //connection bdd 
 
- class Bdd
+class Bdd
 {
 
     private static $_db;
@@ -20,7 +20,7 @@
     /**
      * Fonction qui récupère la connexion à la bdd
      *
-     */ 
+     */
     protected function getDb()
     {
         self::setDb();
@@ -39,12 +39,10 @@
         $var = [];
         $req = $this->getDb()->prepare('SELECT * FROM ' . $table . ' ORDER BY id DESC');
         $req->execute();
-        while($data = $req->fetch(PDO::FETCH_ASSOC))
-        {
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new $obj($data);
         }
         return $var;
         $req->closeCursor();
     }
-
 }

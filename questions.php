@@ -1,0 +1,23 @@
+
+- extrait de chapitre?
+1= controlleur qui va gerer dynamiquement
+2= vue directement couper extraire les 1er mots 
+- vérification securite bdd
+verifier si session crud existe:
+chaque fonction on met une condition
+soit constructor du controller : le plus simple
+crypter bdd : password_hash("1234", PASSWORD_BCRYPT); faire verification: 
+password_verify("1234", $passw); =>il fait la comparaison entre les 2 
+verification string, id ; verif controlleur si information est correct pas forcement le manager
+- htacess (en option)
+- routeur?
+- session? deconnexion à faire disparaitre si session existe 
+- renommer certaines functions
+- class commentaires
+- page contact? en option
+- tyneIce dans editer articles
+-verification accessibilité + responsive
+-html_special_chars = eviter les injections sur les textes sur les commentaires
+
+
+

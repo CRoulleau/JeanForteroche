@@ -1,56 +1,56 @@
 <?php
 
-//index
-
-
-//routeur
 $homeController = new HomeController();
 $articlesController = new ArticlesController();
-switch($page){//la fonction du controller
-    case "home": 
+$adminController = new AdminController();
+
+switch ($page) { //la fonction du controller
+    case "home":
         $homeController->home();
         break;
-    case "biographie": 
+    case "biographie":
         $homeController->biographie();
-            break;
-    case "contact": 
+        break;
+    case "contact":
         $homeController->contact();
-            break;   
-    case "livre": 
+        break;
+    case "livre":
         $homeController->livre();
-            break;
-    case "post": 
+        break;
+    case "post":
         $articlesController->post();
-            break;
-    case "crud": 
+        break;
+    case "crud":
         $articlesController->displayArticlesController();
-            break;
-    case "crudadd": 
+        break;
+    case "crudadd":
         $articlesController->crudAddController();
-            break;
-    case "crudedit":       
+        break;
+    case "crudedit":
         $articlesController->crudEditController();
-            break;
+        break;
     case "crudread":
-        if(isset($_GET['deleteId'])){
-//changer fonctions
+        if (isset($_GET['deleteId'])) {
+            //changer fonctions
             $articlesController->deleteCommentController();
         } else {
             $articlesController->crudReadController();
-        }        
-            break;
+        }
+        break;
     case "reportedcomment":
         $articlesController->reportedComment();
-            break;
-
-    
-
+        break;
     case "crudcomment":
-            $articlesController->displayCommentsReported();
-            break;
-    default:
-        throw new Exception('Routing dispatch not found');        
-        //case qui va afficher la liste des news
-        //variable->function
+        $articlesController->displayCommentsReported();
+        break;
+    case "admin": //page connexion
+        $adminController->checkEmailPws();
+        break;
+    case "deconnexion": //page connexion
+        $adminController->checkEmailPws();
+        break;
 
+
+    default:
+        throw new Exception('Routing dispatch not found');
 }
