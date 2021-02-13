@@ -2,13 +2,13 @@
 
 class ArticlesController
 {
-  public function __construct()
-  {
-    if (!isset($_SESSION['user'])) {
-      header("location: index.php?page=home"); //securite cela va bloquer les autres fonctions
-      echo "erreur";
-    }
-  }
+  // public function __construct()
+  // {
+  //   if (!isset($_SESSION['user'])) {
+  //     header("location: index.php?page=home"); //securite cela va bloquer les autres fonctions
+  //     echo "erreur";
+  //   }
+  // }
   //construct en option pour verification des sessions, si cela ne marche pas on met par fonction pour verifier s'il y a une session pour securiser crud
   //Ajoute un article
   public function crudAddController()

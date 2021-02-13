@@ -1,27 +1,33 @@
 <?php
 
-class HomeController{
+class HomeController
+{
 
-    public function home() {
-        require('views/home_view.php'); //renvoie la vue
+    public function home()
+    {
+        //require('views/home_view.php'); //renvoie la vue
+        return "hello";
     }
-    public function biographie() {
+    public function biographie()
+    {
         require('views/biographie_view.php'); //renvoie la vue
     }
-    public function contact() {
+    public function contact()
+    {
         require('views/contact_view.php'); //renvoie la vue
     }
-    public function livre(){
+    public function livre()
+    {
         $displayArticles = new NewsManager();
         $displayArticles->getNews();
         require('views/livre_view.php');
     }
-    
-   
 
-   
-    
-    
+
+
+
+
+
 
     //FONCTION AFFICHER PAGE AVEC LISTE DES NEWS
     //INSTANCIER MON MODELE (variable)

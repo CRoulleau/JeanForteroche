@@ -5,7 +5,7 @@
 
     <?php include_once 'views/includes/head.php' ?>
 
-    <title><?= ucfirst($page) ?> - Jean Forteroche</title>
+    <!-- <title> - Jean Forteroche</title>-->
 </head>
 
 <body>
